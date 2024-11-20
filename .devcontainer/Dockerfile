@@ -44,8 +44,8 @@ RUN set -ex; \
 
 COPY --from=builder /opt/uv /opt/uvx /usr/local/bin/
 
-# Ensure that the container is running the user that was created and the
-# workspace matyches what we expect by default.
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV UV_LINK_MODE=copy
+
 WORKDIR /home/${USERNAME}
 USER ${USERNAME}
